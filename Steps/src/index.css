@@ -1,0 +1,68 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: sans-serif;
+  color: #333;
+}
+.close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: 40px;
+  color: inherit;
+}
+.steps {
+  width: 600px;
+  margin: 50px 40px;
+  background-color: #f7f6f6;
+  padding: 25px 100px;
+  border-radius: 7px;
+  margin: 100px auto;
+}
+.numbers {
+  display: flex;
+  justify-content: space-between;
+}
+.numbers .active {
+  background-color: #7950f2;
+  color: #fff;
+}
+
+.numbers > div {
+  height: 40px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #e7e7e7;
+  font-size: 18px;
+}
+.message {
+  font-size: 20px;
+  margin: 40px 0;
+  text-align: center;
+  font-weight: bold;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.buttons button {
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 100px;
+  padding: 10px 15px;
+  font-size: 14px;
+  background-color: #7950f2;
+  color: #fff;
+}
