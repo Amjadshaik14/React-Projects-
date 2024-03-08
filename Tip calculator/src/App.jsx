@@ -24,19 +24,24 @@ const App = () => {
     <>
       <Bill billAmount={billAmount} onEnterBill={handleBillAmount} />
       <TipPercentage tipPercent={tipPercent1} onChange={handleTip1}>
-        <p>How did you like the service?</p>
+        <label>How did you like the service?</label>
       </TipPercentage>
       <TipPercentage tipPercent={tipPercent2} onChange={handleTip2}>
-        <p>How did your friend like the service?</p>
+        <label>How did your friend like the service?</label>
       </TipPercentage>
-      <TotalBill
-        billAmount={billAmount}
-        tipPercent1={tipPercent1}
-        tipPercent2={tipPercent2}
-      />
-      <Button bgColor="white" onClick={handleClick}>
-        Reset
-      </Button>
+
+      {billAmount > 0 && (
+        <>
+          <TotalBill
+            billAmount={billAmount}
+            tipPercent1={tipPercent1}
+            tipPercent2={tipPercent2}
+          />
+          <Button bgColor="white" onClick={handleClick}>
+            Reset
+          </Button>
+        </>
+      )}
     </>
   );
 };
@@ -46,7 +51,7 @@ export default App;
 export const Bill = ({ billAmount, onEnterBill }) => {
   return (
     <div>
-      <p>How much was the bill?</p>
+      <label>How much was the bill?</label>
       <input
         type="text"
         value={billAmount}
@@ -72,12 +77,12 @@ export const TipPercentage = ({ children, tipPercent, onChange }) => {
 };
 
 export const TotalBill = ({ billAmount, tipPercent1, tipPercent2 }) => {
-  const avgTip = (tipPercent1 + tipPercent2) / 2;
-  const totalAmount = Number(billAmount) + Number(avgTip);
+  const tip = billAmount * ((tipPercent1 + tipPercent2) / 2 / 100);
+  const totalAmount = Number(billAmount) + Number(tip);
   return (
-    <div>
-      You pay ${billAmount} + ${avgTip} tip = ${totalAmount}
-    </div>
+    <h3>
+      You pay ${billAmount} + ${tip} tip = ${totalAmount}
+    </h3>
   );
 };
 function Button({ bgColor, onClick, children }) {
