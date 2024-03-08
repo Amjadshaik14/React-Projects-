@@ -1,10 +1,10 @@
 /* eslint-disable react/prop-types */
 import Button from "./Button";
-const FriendsList = ({ friends }) => {
+const FriendsList = ({ friends, onSelect }) => {
   return (
     <ul>
       {friends.map((friend) => (
-        <Friend friend={friend} key={friend.id} />
+        <Friend friend={friend} key={friend.id} onSelect={onSelect} />
       ))}
     </ul>
   );
@@ -12,7 +12,7 @@ const FriendsList = ({ friends }) => {
 
 export default FriendsList;
 
-function Friend({ friend }) {
+function Friend({ friend, onSelect }) {
   return (
     <li>
       <img src={friend.image} alt={friend.name} />
@@ -28,7 +28,7 @@ function Friend({ friend }) {
         </p>
       )}
       {friend.balance === 0 && <p>You and {friend.name} are even</p>}
-      <Button>Select</Button>
+      <Button onClick={() => onSelect(friend)}>Select</Button>
     </li>
   );
 }

@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
-export default function Button({ children, onAddFriend }) {
+export default function Button({ children, onClick }) {
   return (
-    <button className="button" onClick={onAddFriend}>
+    <button className="button" onClick={onClick}>
       {children}
     </button>
   );

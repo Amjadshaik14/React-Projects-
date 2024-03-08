@@ -34,16 +34,20 @@ const App = () => {
     setFriends((f) => [...f, friend]);
     setShowAddFriend(false);
   }
+  const [selectedFriend, setSelectedFriend] = useState(null);
+  function handleSelect(friend) {
+    setSelectedFriend(friend);
+  }
   return (
     <div className="app">
       <div className="sidebar">
-        <FriendsList friends={friends} />
+        <FriendsList friends={friends} onSelect={handleSelect} />
         {showAddFriend && <FormAddFriend onAddFriend={handleAddFriend} />}
         <Button onAddFriend={handleShowAddFriend}>
           {showAddFriend ? "Close" : "Add friend"}
         </Button>
       </div>
-      <FormSplitBill />
+      {selectedFriend && <FormSplitBill selectedFriend={selectedFriend} />}
     </div>
   );
 };
