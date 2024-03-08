@@ -1,8 +1,5 @@
-function App() {
-  return <></>;
-}
+import FriendsList from "./FriendsList";
 
-export default App;
 const initialFriends = [
   {
     id: 118836,
@@ -23,3 +20,15 @@ const initialFriends = [
     balance: 0,
   },
 ];
+
+const App = () => {
+  return (
+    <div className="app">
+      <div className="sidebar">
+        <FriendsList friends={initialFriends} />
+      </div>
+    </div>
+  );
+};
+
+export default App;
