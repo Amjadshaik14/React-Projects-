@@ -2,6 +2,7 @@ import FriendsList from "./FriendsList";
 import FormAddFriend from "./FormAddFriend";
 import Button from "./Button";
 import FormSplitBill from "./FormSplitBill";
+import { useState } from "react";
 const initialFriends = [
   {
     id: 118836,
@@ -24,12 +25,18 @@ const initialFriends = [
 ];
 
 const App = () => {
+  const [showAddFriend, setShowAddFriend] = useState(false);
+  function handleShowAddFriend() {
+    setShowAddFriend((show) => !show);
+  }
   return (
     <div className="app">
       <div className="sidebar">
         <FriendsList friends={initialFriends} />
-        <FormAddFriend />
-        <Button>Add friend</Button>
+        {showAddFriend && <FormAddFriend />}
+        <Button onAddFriend={handleShowAddFriend}>
+          {showAddFriend ? "Close" : "Add friend"}
+        </Button>
       </div>
       <FormSplitBill />
     </div>
