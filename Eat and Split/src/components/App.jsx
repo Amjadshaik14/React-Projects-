@@ -38,6 +38,7 @@ const App = () => {
   function handleSelect(friend) {
     // setSelectedFriend(friend);
     setSelectedFriend((cur) => (cur?.id === friend?.id ? null : friend));
+    setShowAddFriend(false);
   }
   return (
     <div className="app">
@@ -48,7 +49,7 @@ const App = () => {
           selectedFriend={selectedFriend}
         />
         {showAddFriend && <FormAddFriend onAddFriend={handleAddFriend} />}
-        <Button onAddFriend={handleShowAddFriend}>
+        <Button onClick={handleShowAddFriend}>
           {showAddFriend ? "Close" : "Add friend"}
         </Button>
       </div>
