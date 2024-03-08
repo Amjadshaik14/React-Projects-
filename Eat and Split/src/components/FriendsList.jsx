@@ -1,4 +1,5 @@
 /* eslint-disable react/prop-types */
+import Button from "./Button";
 const FriendsList = ({ friends }) => {
   return (
     <ul>
@@ -27,7 +28,7 @@ function Friend({ friend }) {
         </p>
       )}
       {friend.balance === 0 && <p>You and your {friend.name} are even</p>}
-      <button className="button">Select</button>
+      <Button>Select</Button>
     </li>
   );
 }

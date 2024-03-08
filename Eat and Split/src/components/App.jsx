@@ -1,5 +1,6 @@
 import FriendsList from "./FriendsList";
-
+import FormAddFriend from "./FormAddFriend";
+import Button from "./Button";
 const initialFriends = [
   {
     id: 118836,
@@ -26,6 +27,8 @@ const App = () => {
     <div className="app">
       <div className="sidebar">
         <FriendsList friends={initialFriends} />
+        <FormAddFriend />
+        <Button>Add friend</Button>
       </div>
     </div>
   );
